@@ -1,1 +1,47 @@
+$font-color: green;
+$border-green: green;
+$border-container: red;
+$text-decoration: 1px underline;
+$font-color2: red;
+$font-color3: blue;
+$font-size: 17px;
 
+
+
+body {
+    height: 100vh;
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        border: 1px solid $border-container;
+        h1 {
+            color: $font-color;
+            text-decoration: blue $text-decoration;
+        }
+        section {
+            display: flex;
+            article {
+                height: 120px;
+                max-width: 400px;
+                border: 1px solid $border-green;
+                .first-text,
+                .third-text { 
+                    padding: 10px 40px 0px 40px;
+                    color: $font-color3;
+                    text-align: center;
+                    font-size: $font-size;
+                }
+                .second-text, 
+                .fourth-text {
+                    padding: 10px 40px 0px 40px;
+                    color: $font-color2;
+                    text-align: center;
+                    font-size: $font-size;
+                }
+            }
+        }
+    }
+}
