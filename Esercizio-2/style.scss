@@ -1,0 +1,71 @@
+@mixin property () {
+    border:1px solid green;
+    height: 120px;
+    max-width: 350px;
+}
+
+@mixin property2 () {
+    border: 1px solid blue;
+    height: 100px;
+    width: 1405px;
+}
+
+@mixin font () {
+    font-size: 24px;
+    color: green;
+}
+
+@mixin color1 () {
+    color: red;
+}
+
+@mixin color2 () {
+    color: blue;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-size: 1em;
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 350px;
+        border: 1px solid red;
+        h1 {
+            color: green;
+            text-decoration:1px underline blue ;
+        }
+        .first {
+            display: flex;
+            .box {
+                @include property();
+                .first-text,
+                .third-text {
+                    @include color2();
+                    padding: 10px 40px 0px 40px;
+                    text-align: center;
+                }
+                .second-text,
+                .fourth-text {
+                    @include color1();
+                    padding: 10px 40px 0px 40px;
+                    text-align: center;
+                }
+            } 
+        }
+        .second {
+            .box2 {
+                @include property2();
+                margin-bottom:20px;
+                .last-text {
+                    @include font();
+                    margin-top: 35px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

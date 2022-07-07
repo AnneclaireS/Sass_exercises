@@ -1,0 +1,51 @@
+body {
+  height: 100vh;
+  margin: 0;
+  font-size: 1em;
+}
+body div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 350px;
+  border: 1px solid red;
+}
+body div h1 {
+  color: green;
+  text-decoration: 1px underline blue;
+}
+body div .first {
+  display: flex;
+}
+body div .first .box {
+  border: 1px solid green;
+  height: 120px;
+  max-width: 350px;
+}
+body div .first .box .first-text,
+body div .first .box .third-text {
+  color: blue;
+  padding: 10px 40px 0px 40px;
+  text-align: center;
+}
+body div .first .box .second-text,
+body div .first .box .fourth-text {
+  color: red;
+  padding: 10px 40px 0px 40px;
+  text-align: center;
+}
+body div .second .box2 {
+  border: 1px solid blue;
+  height: 100px;
+  width: 1405px;
+  margin-bottom: 20px;
+}
+body div .second .box2 .last-text {
+  font-size: 24px;
+  color: green;
+  margin-top: 35px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
