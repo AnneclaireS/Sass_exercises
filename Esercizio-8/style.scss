@@ -1,0 +1,129 @@
+$first-color: red;
+$second-color: blue;
+$third-color: green;
+$fourth-color: #ffffff;
+$fifth-color: black;
+
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin article($color, $border-color, $font-size) {
+    color: $color ;
+    border: 1px solid $border-color ;
+    font-size: $font-size;
+}
+
+@function toRem($value) {
+    $remValue: calc($value / 16)+rem;
+    @return $remValue;
+}
+
+
+%text {
+    color: $third-color;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    @include flex();
+    margin: 0;
+    box-sizing: border-box;
+
+    & div {
+        @include flex();
+        flex-direction: column;
+        height: 550px;
+        border: 1px solid $first-color;
+
+        & h1 {
+            @extend %text;
+            text-decoration: $second-color underline;
+        }
+
+        & h2 {
+            @extend %text;
+            padding: 1rem;
+            border: 1px solid $first-color;
+        }
+    }
+
+    & section {
+        @include flex();
+        margin-left: 20px;
+        margin-right: 20px;
+
+        & article {
+
+            height: 120px;
+            @include flex();
+            text-align: center;
+
+            & p {
+                @include flex();
+                height: 7rem;
+                margin-left: 20px;
+                margin-right: 50px;
+            }
+
+        }
+    }
+
+
+    & .footer {
+        @include article(green, blue, 24px);
+        margin: 20px;
+        width: 92.3vw;
+
+    }
+
+    & .blue {
+        @include article(blue, green, 1rem);
+    }
+
+    & .red {
+        @include article(red, green, 1rem);
+    }
+
+    .numbers {
+        @include flex();
+        height: 700px;
+        width: 92.3vw;
+        gap: 30px;
+        margin-top: 15px;
+    }
+
+    .fs-1rem,
+    .fs-2rem,
+    .fs-3rem {
+        border: 1px solid $first-color;
+        height: toRem(45);
+        width: toRem(45);
+    }
+
+    $sizes: 1rem, 2rem, 3rem;
+
+    @each $size in $sizes {
+        .fs-#{$size} {
+            font-size: $size;
+        }
+    }
+
+
+    @for $i from 1 through 19 {
+        #box:nth-child(0n + #{$i}) {
+            background-color: darken($fourth-color, $i * 5%);
+            color: lighten($fifth-color, $i * 5%);
+
+            @if $i ==10 {
+                background-color: blue;
+                color: $first-color;
+            }
+        }
+
+    }
+}
