@@ -1,3 +1,8 @@
+@use 'function';
+@use 'variables';
+
+
+
 @mixin property () {
     border:1px solid green;
     height: 120px;
@@ -60,11 +65,12 @@ body {
             .box2 {
                 @include property2();
                 margin-bottom:20px;
-                .last-text {
+                font-size: function.toRem(24);
+                .last-text{
                     @include font();
                     margin-top: 35px;
                     text-align: center;
-                }
+                } 
             }
         }
     }
